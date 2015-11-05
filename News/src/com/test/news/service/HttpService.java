@@ -13,17 +13,24 @@ import android.util.Log;
 
 public class HttpService {
 	
+	private static String key = "a715621ee14553d7cc6385b413261bed";
+	
 	private static String url = "http://api.1-blog.com/biz/bizserver/news/list.do";
+	
+	private static String meinv = "http://api.huceo.com/meinv/other/";
 
-	public static String get(int page) {
+	public static String get(int page, String type) {
 		String result = null;
-		String httpArg = String.format("pag=%s", page);
+		url = url.
+		String httpArg = String.format("page=%s", page);
 		url = url + "?" + httpArg;
+		meinv = meinv + "?key=" + key + "&num=10&" + httpArg;
 		
+		Log.d("URL", meinv.toString());
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
 			//指定访问的服务器地址
-			HttpGet httpGet = new HttpGet(url);
+			HttpGet httpGet = new HttpGet(meinv);
 			HttpResponse httpResponse = httpClient.execute(httpGet);
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				//请求响应成功了

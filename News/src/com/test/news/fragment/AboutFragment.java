@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AboutFragment extends Fragment {
+public class AboutFragment extends NewsFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

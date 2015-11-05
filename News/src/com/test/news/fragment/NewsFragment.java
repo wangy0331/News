@@ -6,9 +6,13 @@ import com.test.news.activity.NewsActivity;
 import com.test.news.activity.R;
 import com.test.news.adapter.NewsAdapter;
 import com.test.news.bean.News;
+import com.test.news.bean.NewsList;
 import com.test.news.service.HttpService;
 import com.test.news.util.JsonParser;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b2c514984b43bc9eb19e8485c66d4579c2657582
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,9 +29,9 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class NewsFragment extends ListFragment{
 	
-	private List<News> news;
+	private List<NewsList> news;
 	
-	private int page = 0;
+	private int page = 1;
 	
 	private ListView list;
 	
@@ -78,10 +82,10 @@ public class NewsFragment extends ListFragment{
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		News news = (News) l.getAdapter().getItem(position);
-		Log.d("onListItemClick" ,	news.getArticle_url());
+		NewsList news = (NewsList) l.getAdapter().getItem(position);
+		Log.d("onListItemClick" ,	news.getUrl());
 		Intent intent = new Intent(getActivity(), NewsActivity.class);
-		intent.putExtra("news_url", news.getArticle_url());
+		intent.putExtra("news_url", news.getUrl());
 		startActivity(intent);
 	}
 
@@ -95,10 +99,16 @@ public class NewsFragment extends ListFragment{
 	
 	class MyTask extends AsyncTask<String, Integer, String> {
 
+		private String newsType;
+		
+		public MyTask(String type) {
+			newsType = type;
+		}
+
 		@Override
 		protected String doInBackground(String... params) {
 			try {
-				String response = HttpService.get(page);
+				String response = HttpService.get(page,newsType);
 				news = JsonParser.parseJSONWithJSONObject(response);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -123,10 +133,15 @@ public class NewsFragment extends ListFragment{
 	
 
 	private void sendRequestWithHttpClient() {
+<<<<<<< HEAD
 		
 		
 		
 		mMyAsyncTask = new MyTask();
+=======
+		String type = "meinv";
+		mMyAsyncTask = new MyTask(type);
+>>>>>>> b2c514984b43bc9eb19e8485c66d4579c2657582
 		mMyAsyncTask.execute();
 		
 //		new Thread(new Runnable() {
