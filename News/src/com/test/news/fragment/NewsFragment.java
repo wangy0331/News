@@ -8,7 +8,6 @@ import com.test.news.adapter.NewsAdapter;
 import com.test.news.bean.News;
 import com.test.news.service.HttpService;
 import com.test.news.util.JsonParser;
-import com.test.news.util.MyAsyncTask;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -36,7 +35,7 @@ public class NewsFragment extends ListFragment{
 	
 	private SwipeRefreshLayout mSwipeRefreshLayout;
 	
-	private MyAsyncTask mMyAsyncTask;
+	private MyTask mMyAsyncTask;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -106,10 +105,12 @@ public class NewsFragment extends ListFragment{
 				}
 
 			return null;
+			
 		}
 
 		@Override
 		protected void onPostExecute(String result) {
+			mSwipeRefreshLayout.setRefreshing(false);
 			if (list.getAdapter() == null) {
 				Log.d("TAG_ADAPTER" , "----------HANDLIER---------");
 				list.setAdapter(adapter);
@@ -123,7 +124,9 @@ public class NewsFragment extends ListFragment{
 
 	private void sendRequestWithHttpClient() {
 		
-		mMyAsyncTask = new MyAsyncTask();
+		
+		
+		mMyAsyncTask = new MyTask();
 		mMyAsyncTask.execute();
 		
 //		new Thread(new Runnable() {
