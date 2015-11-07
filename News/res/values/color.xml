@@ -2,4 +2,5 @@
 <resources>
     <color name="red">#FFFFFF</color>
 	<color name="transparent_red">#c2c2c2</color>
+	<color name="background_window">#FFE5E5E5</color>
 </resources>

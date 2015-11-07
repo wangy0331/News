@@ -9,31 +9,50 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import com.test.news.util.UrlType;
+
 import android.util.Log;
 
 public class HttpService {
 	
-	private static String key = "a715621ee14553d7cc6385b413261bed";
-	
-	private static String url = "http://api.1-blog.com/biz/bizserver/news/list.do";
-	
-	private static String meinv = "http://api.huceo.com/meinv/other/";
+//	private static String key = "a715621ee14553d7cc6385b413261bed";
+//	
+	private static String url = "";
+//	
+//	private static String meinv = "http://api.huceo.com/wxnew/other/";
 
 	public static String get(int page, String type) {
 		String result = null;
-		url = url.
-		String httpArg = String.format("page=%s", page);
-		url = url + "?" + httpArg;
-		meinv = meinv + "?key=" + key + "&num=10&" + httpArg;
 		
-		Log.d("URL", meinv.toString());
+		if ("美女".equals(type)) {
+			url = UrlType.getMeinv();
+		} else if ("国内".equals(type)) {
+			url = UrlType.getGuonei();
+		} else if ("社会".equals(type)) {
+			url = UrlType.getSocial();
+		} else if ("国际".equals(type)) {
+			url = UrlType.getWorld();
+		} else if ("体育".equals(type)) {
+			url = UrlType.getTiyu();
+		} else if ("科技".equals(type)) {
+			url = UrlType.getKeji();
+		} else if ("娱乐".equals(type)) {
+			url = UrlType.getHuabian();
+		}
+		Log.d("TAG_URL" , url);
+//		url = url.
+		String httpArg = String.format("page=%s", page);
+		url = url + "&" + httpArg;
+//		meinv = meinv + "?key=" + key + "&num=10&" + httpArg;
+		
+//		Log.d("URL", meinv.toString());
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
-			//指定访问的服务器地址
-			HttpGet httpGet = new HttpGet(meinv);
+			//
+			HttpGet httpGet = new HttpGet(url);
 			HttpResponse httpResponse = httpClient.execute(httpGet);
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				//请求响应成功了
+				//
 				HttpEntity entity = httpResponse.getEntity();
 				result = EntityUtils.toString(entity ,"UTF-8");
 			}

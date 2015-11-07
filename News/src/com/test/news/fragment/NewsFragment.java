@@ -9,10 +9,6 @@ import com.test.news.bean.News;
 import com.test.news.bean.NewsList;
 import com.test.news.service.HttpService;
 import com.test.news.util.JsonParser;
-<<<<<<< HEAD
-
-=======
->>>>>>> b2c514984b43bc9eb19e8485c66d4579c2657582
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,6 +37,15 @@ public class NewsFragment extends ListFragment{
 	
 	private MyTask mMyAsyncTask;
 	
+	String type = "";
+	
+	public NewsFragment(String string) {
+		type = string;
+		Log.d("TAG_TYPE" , string);
+	}
+
+
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.news2_fragment, container, false);
@@ -133,55 +138,7 @@ public class NewsFragment extends ListFragment{
 	
 
 	private void sendRequestWithHttpClient() {
-<<<<<<< HEAD
-		
-		
-		
-		mMyAsyncTask = new MyTask();
-=======
-		String type = "meinv";
 		mMyAsyncTask = new MyTask(type);
->>>>>>> b2c514984b43bc9eb19e8485c66d4579c2657582
 		mMyAsyncTask.execute();
-		
-//		new Thread(new Runnable() {
-//
-//			@Override
-//			public void run() {
-//				try {
-//				String response = HttpService.get(page);
-//				Log.d("MainActivity" , "---------MainActivity2----------");
-//				news = JsonParser.parseJSONWithJSONObject(response);
-//				
-//				myHandler.sendEmptyMessage(1);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//			
-//		}).start();
 	}
-
-//	Handler myHandler = new Handler() {
-//
-//		@Override
-//		public void handleMessage(Message msg) {
-//			super.handleMessage(msg);
-//			Log.d("TAG_MSG" , String.valueOf(msg.what));
-//			mSwipeRefreshLayout.setRefreshing(false);
-//			switch (msg.what) {
-//			case 1:
-//				if (list.getAdapter() == null) {
-//					Log.d("TAG_ADAPTER" , "----------HANDLIER---------");
-//					list.setAdapter(adapter);
-//				}
-//				adapter.addAll(news);
-//				adapter.notifyDataSetChanged(); 
-//				break;
-//
-//			default:
-//				break;
-//			}
-//		}
-//	};
 }

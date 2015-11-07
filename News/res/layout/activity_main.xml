@@ -1,61 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/menu"
-	>
-   
-        
-  	<LinearLayout 
-  	    android:id="@+id/view_group"
-  	    android:layout_height="wrap_content"
-  	    android:layout_width="match_parent"
-  	    android:gravity="center"
-  	    android:layout_alignParentBottom="true"
-  	    >
-  	    <TextView
-  	     	android:id="@+id/list1"
-  	        android:layout_width="0dp"
-  	        android:layout_height="wrap_content"
-  	        android:padding="10dp"
-  	        android:background="@drawable/layout_selecter"  
-  	        android:gravity="center"
-  	        android:text="@string/list1"
-  	        android:textColor="#000000" 
-  	        android:clickable="true"
-  	        android:layout_weight="1"
-  	        />
-  	    
-  	    <TextView
-  	        android:id="@+id/list2"
-  	        android:layout_width="0dp"
-  	        android:layout_height="wrap_content"
-  	        android:background="@drawable/layout_selecter"  
-  	        android:gravity="center"
-  	        android:padding="10dp"
-  	        android:text="@string/list2"
-  	        android:textColor="#000000" 
-  	        android:clickable="true"
-  	        android:layout_weight="1"
-  	        />
-  	</LinearLayout>
-	
-  	<!-- 
-  	<ImageView  
-        android:id="@+id/cursor" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_below="@id/view_group" 
-        android:scaleType="matrix" 
-        android:src="@drawable/cursor" 
-        /> 
-  	-->
-	<android.support.v4.view.ViewPager 
-    android:id="@+id/viewPager" 
-    android:layout_width="match_parent" 
-    android:layout_height="match_parent" 
-    android:layout_gravity="center" 
-    android:layout_above="@id/view_group"
-    /> 
-</RelativeLayout>
+    tools:context="com.test.news.activity.MainActivity" >
+
+    <com.test.news.activity.HorizontalScrollMenu
+        android:id="@+id/hsm_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
