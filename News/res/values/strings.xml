@@ -10,4 +10,6 @@
 	<string name="list3">类型3</string>
 	<string name="fanhui">返回</string>
 	<string name="image">图片</string>
+	<string name="scrollMenu">ScrollMenu</string>
+	<string name="tabStrip">"TabStrip"</string>
 </resources>

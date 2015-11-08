@@ -24,21 +24,29 @@ public class HttpService {
 	public static String get(int page, String type) {
 		String result = null;
 		
-		if ("美女".equals(type)) {
+		if ("美女图片".equals(type)) {
 			url = UrlType.getMeinv();
-		} else if ("国内".equals(type)) {
+		} else if ("国内新闻".equals(type)) {
 			url = UrlType.getGuonei();
-		} else if ("社会".equals(type)) {
+		} else if ("社会新闻".equals(type)) {
 			url = UrlType.getSocial();
-		} else if ("国际".equals(type)) {
+		} else if ("国际新闻".equals(type)) {
 			url = UrlType.getWorld();
-		} else if ("体育".equals(type)) {
+		} else if ("体育新闻".equals(type)) {
 			url = UrlType.getTiyu();
-		} else if ("科技".equals(type)) {
+		} else if ("科技新闻".equals(type)) {
 			url = UrlType.getKeji();
-		} else if ("娱乐".equals(type)) {
+		} else if ("娱乐花边".equals(type)) {
 			url = UrlType.getHuabian();
-		}
+		}  else if ("奇闻趣事".equals(type)) {
+			url = UrlType.getHuabian();
+		}  else if ("生活健康".equals(type)) {
+			url = UrlType.getHuabian();
+		}  else if ("旅游热点".equals(type)) {
+			url = UrlType.getHuabian();
+		}  else if ("苹果新闻".equals(type)) {
+			url = UrlType.getHuabian();
+		} 
 		Log.d("TAG_URL" , url);
 //		url = url.
 		String httpArg = String.format("page=%s", page);

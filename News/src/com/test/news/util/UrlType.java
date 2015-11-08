@@ -25,6 +25,18 @@ public final class UrlType {
 	private static final String keji = "http://api.huceo.com/keji/other/?key="
 			+ key + "&num=10";
 	
+	private static final String qiwen = "http://api.huceo.com/keji/other/?key="
+			+ key + "&num=10";
+	
+	private static final String health = "http://api.huceo.com/keji/other/?key="
+			+ key + "&num=10";
+	
+	private static final String travel = "http://api.huceo.com/keji/other/?key="
+			+ key + "&num=10";
+	
+	private static final String apple = "http://api.huceo.com/keji/other/?key="
+			+ key + "&num=10";
+	
 	public static String getKey() {
 		return key;
 	}
@@ -55,5 +67,21 @@ public final class UrlType {
 
 	public static String getKeji() {
 		return keji;
+	}
+
+	public static String getQiwen() {
+		return qiwen;
+	}
+
+	public static String getHealth() {
+		return health;
+	}
+
+	public static String getTravel() {
+		return travel;
+	}
+
+	public static String getApple() {
+		return apple;
 	}
 }

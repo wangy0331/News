@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class FragAdapter extends FragmentPagerAdapter {
 	
 	String[] names = new String[]
-			{ "美女", "国内", "社会", "国际", "体育", "娱乐", "科技" };
+			{ "美女图片", "国内新闻", "社会新闻", "国际新闻", "体育新闻", "娱乐花边", "科技新闻", "奇闻趣事", "生活健康", "旅游热点", "苹果新闻"};
 
 	
 	private List<Fragment> fragments;

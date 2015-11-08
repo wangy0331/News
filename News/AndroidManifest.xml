@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +27,9 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name=".NewsActivity"></activity>
+            android:name=".NewsActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ScrollMenu" android:screenOrientation="portrait"></activity>
+        <activity android:name=".TabStrip" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
